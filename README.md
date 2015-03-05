@@ -1,6 +1,6 @@
 ![](http://i.imgur.com/37NH15B.jpg)
 # PHP Traffic Light Monitoring
-A simple monitoring solution, which can display server health using traffic lights (and much more!).
+A simple monitoring solution, which can display monitoring system stati using traffic lights (and much more) via network controllable socket boards.
 
 ## Quick start
 ### Step 1: Installation
@@ -47,7 +47,7 @@ The configuration file consists of 3 sections: ``inputs`` specify status sources
 ### Step 3: Run
 ```sh
 $ php monitor.php
-``` 
+```
 This reads the status from the inputs and transmits it to the outputs. Use cronjobs for periodic execution.
 
 # Extending
