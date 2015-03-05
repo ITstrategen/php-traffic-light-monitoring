@@ -1,0 +1,55 @@
+{
+    "inputs": {
+        "zabbix": {
+            "class": "ITstrategen\\Inputs\\ZabbixInput",
+            "url": "https://monitoring.example.com/zabbix/api_jsonrpc.php",
+            "username": "johndoe",
+            "password": ""
+        },
+
+        "company-jenkins": {
+            "class": "ITstrategen\\Inputs\\JenkinsInput",
+            "url": "https://jenkins.example.com",
+            "job": "Software Product 8000"
+        }
+    },
+
+    "outputs": {
+        "hq-gummybears": {
+            "class": "ITstrategen\\Outputs\\UdpTrafficLightOutput",
+            "host": "192.168.123.123",
+            "port": 123,
+            "delay": 0.5,
+            "messages": {
+                "on": "Sw_on{status}userpass",
+                "off": "Sw_off{status}userpass"
+            },
+            "status": {
+                "good": 1,
+                "okay": 2,
+                "bad": 3
+            }
+        },
+
+        "dev-room-traffic-light": {
+            "class": "ITstrategen\\Outputs\\UdpTrafficLightOutput",
+            "host": "192.168.123.123",
+            "port": 123,
+            "delay": 0.5,
+            "messages": {
+                "on": "Sw_on{status}userpass",
+                "off": "Sw_off{status}userpass"
+            },
+            "status": {
+                "good": 1,
+                "okay": 2,
+                "bad": 3
+            }
+        }
+    },
+
+    "routes": [
+        {"from": "zabbix", "to": "hq-gummybears"},
+        {"from": "company-jenkins", "to" : "dev-room-traffic-light"}
+    ]
+}

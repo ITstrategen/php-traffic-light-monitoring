@@ -1,0 +1,44 @@
+{
+    "name": "ITstrategen/php-traffic-light-monitoring",
+    "version": "1.0.0",
+    "type": "project",
+    "keywords": ["monitoring"],
+    "license": "GPL-3.0",
+
+    "authors": [
+        {
+            "name": "Max Vogler",
+            "email": "max@itstrategen.de"
+        },
+
+        {
+            "name": "Stephan Bothur",
+            "email": "stephan@itstrategen.com"
+        },
+
+        {
+            "name": "Sebastian Krein",
+            "email": "sebastian@itstrategen.de"
+        }
+    ],
+
+    "require": {
+        "php-zabbix-api/zabbix-api": "dev-master",
+        "noodlehaus/config": "dev-master",
+        "marc-mabe/php-enum": "dev-master",
+        "monolog/monolog": "dev-master",
+        "pwfisher/command-line-php": "dev-master",
+        "dinke/curl-http-client": "dev-master",
+        "mnapoli/php-di": "~4.0"
+    },
+
+    "require-dev": {
+        "phpunit/phpunit" : "4.4.*"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "ITstrategen\\": "src/"
+        }
+    }
+}
