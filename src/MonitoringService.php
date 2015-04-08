@@ -136,11 +136,15 @@ class MonitoringService extends Configurable
             try {
                 $status = $this->determineStatus($inputId);
                 $outputService->updateOutput($status);
+                $this->log("Routed status '%s' from %s -> %s", [$status->getName(), $inputId, $outputId]);
             } catch(\Exception $e) {
-                $this->log("%s (%s)", [$e->getMessage(), $e->getTraceAsString()]);
+                // remove the first character, which is a "#" to prevent an empty line in the log!
+                $traces = explode('#', substr($e->getTraceAsString(), 1));
+                $this->log("ERROR: %s", [$e->getMessage()]);
+                foreach($traces as $trace) {
+                    $this->log("\t#%s", [$trace]);
+                }
             }
-
-            $this->log("Routed status '%s' from %s -> %s", [$status->getName(), $inputId, $outputId]);
         }
 
         $this->printFooter();
