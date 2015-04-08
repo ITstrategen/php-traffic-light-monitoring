@@ -92,10 +92,12 @@ class MonitoringService extends Configurable
      */
     protected function printHeader()
     {
-        $this->log("PHP Traffic Light Monitoring - Copyright (C) 2015 ITstrategen GmbH");
-        $this->log("This program comes with ABSOLUTELY NO WARRANTY.");
-        $this->log("This is free software, and you are welcome to redistribute it.");
-        $this->log("");
+        // Disabled, for the sake of shorter & more readable log messages
+
+        //$this->log("PHP Traffic Light Monitoring - Copyright (C) 2015 ITstrategen GmbH");
+        //$this->log("This program comes with ABSOLUTELY NO WARRANTY.");
+        //$this->log("This is free software, and you are welcome to redistribute it.");
+        //$this->log("");
     }
 
     /**
@@ -131,10 +133,13 @@ class MonitoringService extends Configurable
 
             /** @var Output $outputService */
             $outputService = $this->instantiateClass($outputId);
+            try {
+                $status = $this->determineStatus($inputId);
+                $outputService->updateOutput($status);
+            } catch(\Exception $e) {
+                $this->log("%s (%s)", [$e->getMessage(), $e->getTraceAsString()]);
+            }
 
-            $status = $this->determineStatus($inputId);
-
-            $outputService->updateOutput($status);
             $this->log("Routed status '%s' from %s -> %s", [$status->getName(), $inputId, $outputId]);
         }
 
@@ -167,7 +172,7 @@ class MonitoringService extends Configurable
 
         foreach ($this->getOutputs() as $id => $output) {
             $output->off();
-            $this->log("Turned %s off", [$id]);
+            $this->log("Turned %s OFF", [$id]);
         }
 
         $this->printFooter();
@@ -191,7 +196,7 @@ class MonitoringService extends Configurable
             $name = $this->getConfig($id . '.' . self::KEY_CLASS);
             $this->instances[$id] = $this->container->make($name, ['id' => $id]);
 
-            $this->log("Created %s of type %s", [$id, $name]);
+            //$this->log("Created %s of type %s", [$id, $name]);
         }
 
         return $this->instances[$id];
@@ -214,7 +219,7 @@ class MonitoringService extends Configurable
 
             $this->status[$id] = $status;
 
-            $this->log("Determined status of %s: %s", [$id, $status->getName()]);
+            //$this->log("Determined status of %s: %s", [$id, $status->getName()]);
         }
 
         return $this->status[$id];

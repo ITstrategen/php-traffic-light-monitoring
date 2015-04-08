@@ -51,7 +51,7 @@ $container->set('Noodlehaus\Config', $config);
 $container->set('Monolog\Logger', DI\factory(function () {
     $logger = new Logger('MonitoringService');
     $handler = new StreamHandler("php://stdout");
-    $handler->setFormatter(new LineFormatter("%message%\n"));
+    $handler->setFormatter(new LineFormatter("%datetime% %message%\n"));
     $logger->pushHandler($handler);
     return $logger;
 }));

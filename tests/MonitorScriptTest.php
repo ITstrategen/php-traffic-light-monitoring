@@ -43,7 +43,7 @@ class MonitorScriptTest extends BaseTest
     {
         $file = $this->createConfigFile($this->getConstantInputConfigJson('okay'));
         $output = trim(shell_exec(sprintf('php monitor.php off --config="%s"', $file)));
-        $this->assertStringEndsWith("Turned outputs.test-out off", $output);
+        $this->assertStringEndsWith("Turned outputs.test-out OFF", $output);
         unlink($file);
     }
 
