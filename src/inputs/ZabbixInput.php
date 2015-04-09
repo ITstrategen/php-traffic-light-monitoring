@@ -65,7 +65,8 @@ class ZabbixInput extends Input
         // create filter for 'disaster', 'high', 'average', 'warning' and 'not classified'
         // further set flag to sort for 'a plain trigger' (not acknowledged)
         $filter = [
-            'priority' => ['5', '4', '3', '2', '0']
+            'priority' => ['5', '4', '3', '2', '0'],
+            'value' => '1'
         ];
 
         $triggers = $this->api->triggerGet([
