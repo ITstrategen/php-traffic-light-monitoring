@@ -1,6 +1,7 @@
 ![](http://i.imgur.com/37NH15B.jpg)
 # PHP Traffic Light Monitoring
-A simple monitoring solution, which can display monitoring system stati using traffic lights (and much more) via network controllable socket boards.
+A simple monitoring solution, which can display monitoring system stati using traffic lights (and much more) via network controllable socket boards.  
+[![Build Status](https://travis-ci.org/ITstrategen/php-traffic-light-monitoring.svg?branch=master)](https://travis-ci.org/ITstrategen/php-traffic-light-monitoring)
 
 ## Quick start
 ### Step 1: Installation
