@@ -17,10 +17,9 @@
 
 namespace ITstrategen\inputs;
 
-
 use ITstrategen\Status;
 use Noodlehaus\Config;
-use ZabbixApi;
+use ZabbixApi\ZabbixApi;
 
 /**
  * An input source for the Zabbix monitoring solution.

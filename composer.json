@@ -23,13 +23,13 @@
     ],
 
     "require": {
-        "php-zabbix-api/zabbix-api": "dev-master",
-        "noodlehaus/config": "dev-master",
-        "marc-mabe/php-enum": "dev-master",
-        "monolog/monolog": "dev-master",
+        "noodlehaus/config": "^0.8.2",
+        "marc-mabe/php-enum": "^2.1",
+        "monolog/monolog": "^1.17",
         "pwfisher/command-line-php": "dev-master",
-        "dinke/curl-http-client": "dev-master",
-        "mnapoli/php-di": "~4.0"
+        "dinke/curl-http-client": "^2.0",
+        "mnapoli/php-di": "^5.0",
+        "confirm-it-solutions/php-zabbix-api": "^2.4"
     },
 
     "require-dev": {
@@ -39,6 +39,9 @@
     "autoload": {
         "psr-4": {
             "ITstrategen\\": "src/"
-        }
+        },
+        "files": [
+            "vendor/confirm-it-solutions/php-zabbix-api/build/ZabbixApi.class.php"
+        ]
     }
 }
